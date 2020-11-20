@@ -10,7 +10,14 @@ export const onInitialClientRender = (_, pluginOptions) => {
 
   tawkScript.defer = true;
 
+  const reffererMeta = document.createElement("meta");
+
+  reffererMeta.name = "referrer";
+
+  reffererMeta.content = "no-referrer-when-downgrade";
+
   const appendScript = () => {
+    document.head.appendChild(reffererMeta);
     document.body.appendChild(tawkScript);
   };
 
